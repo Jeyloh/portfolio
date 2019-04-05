@@ -4,7 +4,7 @@ import { Link } from "gatsby";
 
 export const StyledSidebar = styled.header`
     width: 200px;
-    min-height: 100%;
+    min-height: inherit;
     background: ${APP_COLOR.dailyColor3};
     color: ${APP_COLOR.light};
 

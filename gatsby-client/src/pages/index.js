@@ -29,7 +29,7 @@ const IndexPage = ({ data }) => {
       <Layout>
         <h1>{data.sanityAbout.header}</h1>
         {JSON.stringify(data.sanityAbout.description)}
-        <BlockContent blocks={data.sanityAbout.description} />
+        <BlockContent blocks={data.sanityAbout.description} serializers={data.sanityAbout.description} />
       </Layout>
     </Styled.StyledIndexWrapper>
   )
