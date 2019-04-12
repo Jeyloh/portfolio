@@ -1,0 +1,7 @@
+{
+  "packages": [
+    "gatsby-client",
+    "portfolio-sanity-studio"
+  ],
+  "version": "1.0.0"
+}
