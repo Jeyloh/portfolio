@@ -63,7 +63,7 @@ export default {
     },
     {
       type: "code",
-      title: "Code",
+      title: "Code Snippet",
       options: {
         theme: "monokai",
         language: "js",

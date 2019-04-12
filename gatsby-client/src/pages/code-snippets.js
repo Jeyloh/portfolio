@@ -2,32 +2,45 @@ import React from "react";
 import Layout from "../components/Layout/Layout";
 import SEO from "../components/seo";
 import BlockContent from "@sanity/block-content-to-react";
+import Refractor from 'react-refractor'
+import js from 'refractor/lang/javascript'
+import css from 'refractor/lang/css'
+import "../styles/prism.css"
+import styled from "styled-components";
+
+
+export const CodeBlockContent = ({blocks}) => {
+
+  Refractor.registerLanguage(js)
+  Refractor.registerLanguage(css)
+
+  const StyledRefractor = styled(Refractor)`
+    background: #272822;
+  `;
 
 const serializers = {
   types: {
-    code: props => (
-      <pre data-language="javascript">
-        <code>{props.text}</code>
-      </pre>
-    ),
-  },
-};
+      authorReference: ({node}) => <span>{node.author.name}</span>,
+      code ({node}) {
+        return <StyledRefractor value={node.code} language={node.language} />
+      }
+    }
+  }
+  return (
+    <BlockContent blocks={blocks} serializers={serializers} />
+  )
+
+}
 
 const CodeSnippets = ({ data }) => (
   <Layout>
     <SEO title="Code Snippets" />
     <div>
-      <h1>Hi from the Code Snippets page</h1>
-
       {data.allSanityCodeSnippets.edges.map(({ node: use }) => {
         return (
           <div>
             <h5>{use.description}</h5>
-            <pre>
-              <code className="language-javascript">
-                <BlockContent blocks={use._rawCode} />
-              </code>
-            </pre>
+            <CodeBlockContent blocks={use._rawCodeSnippet} />
           </div>
         );
       })}
@@ -43,7 +56,7 @@ export const query = graphql`
       edges {
         node {
           description
-          _rawCode
+          _rawCodeSnippet
         }
       }
     }

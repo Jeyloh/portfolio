@@ -11,9 +11,6 @@ export const PageLinks = () => {
         <Link to="/experience/">Experience</Link>
       </h3>
       <h3>
-        <Link to="/about/">About</Link>
-      </h3>
-      <h3>
         <Link to="/blog/">Blog</Link>
       </h3>
       <h3>

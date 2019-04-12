@@ -1,3 +1,11 @@
+// Load variables from `.env` as soon as possible
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV || 'development'}`
+})
+const clientConfig = require('./client-config')
+const isProd = process.env.NODE_ENV === 'production'
+
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -18,10 +26,10 @@ module.exports = {
     {
       resolve: "gatsby-source-sanity",
       options: {
-        projectId: process.env.GATSBY_SANITY_PROJECT_ID,
-        dataset: process.env.GATSBY_SANITY_DATASET,
+        ...clientConfig.sanity,
         token: process.env.SANITY_READ_TOKEN,
-        watchMode: true,
+        watchMode: !isProd,
+        overlayDrafts: !isProd
       },
     },
     {

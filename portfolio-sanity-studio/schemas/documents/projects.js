@@ -20,8 +20,7 @@ export default {
     {
       name: "description",
       title: "Description",
-      type: "array",
-      of: [{ type: "block" }]
+      type: "blockContent"
     },
     {
       name: "color",
@@ -31,11 +30,16 @@ export default {
     {
       name: "technologyString",
       title: "Technology",
-      type: "text"
+      type: "string"
     },
     {
-      name: "dateString",
-      title: "Date",
+      name: "fromDate",
+      title: "From Date",
+      type: "date"
+    },
+    {
+      name: "toDate",
+      title: "To date",
       type: "date"
     }
   ]

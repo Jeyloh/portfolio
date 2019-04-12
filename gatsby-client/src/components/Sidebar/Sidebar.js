@@ -24,13 +24,12 @@ const Sidebar = ({ siteTitle }) => {
         </Link>
       </Title>
       <SidebarNavWrapper>
-        <MainNavLink to="/projects/">Projects</MainNavLink>
-        <MainNavLink to="/experience/">Experience</MainNavLink>
-        <MainNavLink to="/philosophy/">Philosophy</MainNavLink>
-        <MainNavLink to="/code-snippets/">Code Snippets</MainNavLink>
-        <MainNavLink to="/about/">About</MainNavLink>
-        <MainNavLink to="/blog/">Blog</MainNavLink>
-        <MainNavLink to="/uses/">Uses</MainNavLink>
+        <MainNavLink activeClassName="active" to="/projects/">Projects</MainNavLink>
+        <MainNavLink activeClassName="active" to="/experience/">Experience</MainNavLink>
+        <MainNavLink activeClassName="active" to="/philosophy/">Philosophy</MainNavLink>
+        <MainNavLink activeClassName="active" to="/code-snippets/">Code Snippets</MainNavLink>
+        <MainNavLink activeClassName="active" to="/blog/">Blog</MainNavLink>
+        <MainNavLink activeClassName="active" to="/uses/">Uses</MainNavLink>
       </SidebarNavWrapper>
     </StyledSidebar>
   );

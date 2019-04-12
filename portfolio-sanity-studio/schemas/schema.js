@@ -12,6 +12,7 @@ import projects from "./documents/projects";
 import hobbies from "./documents/hobbies";
 import experiences from "./documents/experiences";
 import codeSnippets from "./documents/codeSnippets";
+import philosophy from "./documents/philosophy";
 import uses from "./documents/uses";
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -26,6 +27,7 @@ export default createSchema({
     projects,
     hobbies,
     experiences,
+    philosophy,
     codeSnippets,
     uses,
     // When added to this list, object types can be used as

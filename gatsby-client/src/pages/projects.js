@@ -5,6 +5,8 @@ import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
+import BlockContent from "@sanity/block-content-to-react";
+
 
 const Projects = ({ data }) => (
   <Layout>
@@ -15,9 +17,9 @@ const Projects = ({ data }) => (
       {data.allSanityProjects.edges.map(project => (
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
-          date={project.node.dateString}
+          date={`${project.node.fromDate} - ${project.node.toDate}`}
           iconStyle={{
-            background: project.node.color || "rgb(33, 150, 243)",
+            background: project.node.color ? project.node.color.hex : "rgb(33, 150, 243)",
             color: "#fff",
           }}
         >
@@ -27,7 +29,7 @@ const Projects = ({ data }) => (
           <h4 className="vertical-timeline-element-subtitle">
             {project.node.technologyString}
           </h4>
-          <p>{project.node.description}</p>
+          <BlockContent blocks={project.node._rawDescription} />
         </VerticalTimelineElement>
       ))}
     </VerticalTimeline>
@@ -42,8 +44,14 @@ export const query = graphql`
       edges {
         node {
           title
-          dateString
-          description
+          fromDate
+          toDate
+          technologyString
+          _rawDescription
+          color {
+            alpha
+            hex
+          }
         }
       }
     }

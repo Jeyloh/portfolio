@@ -43,6 +43,11 @@ export const MainNavLink = styled(Link)`
   padding: 0.2em 2.15em 0.2em 0;
   font-size: 1.2em;
 
+  &.active {
+    background: ${APP_COLOR.light};
+    color: ${APP_COLOR.dark};
+  }
+
   :hover {
     background: ${APP_COLOR.light};
     color: ${APP_COLOR.dark};

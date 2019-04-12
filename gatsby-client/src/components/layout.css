@@ -1,4 +1,3 @@
-
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -194,13 +193,13 @@ html {
   overflow-y: scroll;
 }
 * {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 *:before {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 *:after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 body {
   color: hsla(0, 0%, 0%, 0.8);

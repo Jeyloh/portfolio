@@ -1,11 +1,11 @@
 export default {
-  name: "experiences",
-  title: "Experiences",
+  name: "philosophy",
+  title: "Philosophy",
   type: "document",
   fields: [
     {
-      name: "title",
-      title: "Title",
+      name: "header",
+      title: "Header",
       type: "string"
     },
     {
@@ -18,8 +18,9 @@ export default {
       }
     },
     {
-      name: "description",
-      title: "Description",
+      name: "philosophy",
+      title: "Philosophy",
+      description: "You can only fill out this. Use Rich Text to make the page shine",
       type: "blockContent"
     },
     {

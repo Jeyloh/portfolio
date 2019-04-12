@@ -4,18 +4,25 @@ import SEO from "../components/seo";
 import * as Styled from "../components/IndexComponent/styles";
 import Particles from "react-particles-js";
 import { getParticles } from "../particles-setup";
-import About from "./about";
 import BlockContent from "@sanity/block-content-to-react";
 import imageUrlBuilder from "@sanity/image-url";
 import myConfiguredSanityClient from "../../client-config";
+import arrIcon from "../images/white-down-arrow.png"
 
 // https://github.com/alexfoxy/laxxx/blob/master/README.md#supported-presets
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data, error }) => {
   const [particles, addParticles] = React.useState(100);
-  const titleRef = React.createRef();
+  const scrollTopRef = React.useRef();
 
-  alert(JSON.stringify(myConfiguredSanityClient));
+  if (error) {
+    return <div>{JSON.stringify(error)}</div>
+  }
+
+  function scrollDown() {
+    scrollTopRef.current && scrollTopRef.current.scrollIntoView({ behavior: "smooth"});
+  }
+
 
   const builder = imageUrlBuilder(myConfiguredSanityClient);
   function urlFor(source) {
@@ -25,23 +32,23 @@ const IndexPage = ({ data }) => {
   return (
     <Styled.StyledIndexWrapper>
       <SEO title="Jørgen Lybeck Hansen" />
-      <Styled.SplashScreenWrapper onClick={() => addParticles(particles + 5)}>
+      <Styled.SplashScreenWrapper>
         <Particles
           style={{ position: "absolute", top: 0, left: 0 }}
           params={getParticles(particles)}
         />
-        <Styled.SplashScreenTitle fontSize="5rem" ref={titleRef}>
+        <Styled.SplashScreenTitle fontSize="5rem">
           Jørgen
           <br />
           Lybeck
           <br />
           Hansen
         </Styled.SplashScreenTitle>
-        <Styled.SplashScreenArrow />
+         <Styled.SplashScreenArrow src={arrIcon} alt="Logo" onClick={() => scrollDown()} />
       </Styled.SplashScreenWrapper>
 
       <Layout>
-        <h1>{data.sanityAbout.header}</h1>
+        <h1 ref={scrollTopRef}>{data.sanityAbout.header}</h1>
         <BlockContent blocks={data.sanityAbout._rawDescription} />
         <img
           src={urlFor(data.sanityAbout._rawImage)

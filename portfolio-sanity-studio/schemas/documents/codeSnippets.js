@@ -19,8 +19,8 @@ export default {
     },
     {
       title: "Code",
-      name: "code",
-      type: "blockContent"
+      name: "codeSnippet",
+      type: "code"
     }
   ]
 };

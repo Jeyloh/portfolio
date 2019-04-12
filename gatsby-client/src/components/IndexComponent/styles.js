@@ -63,14 +63,29 @@ export const SplashScreenTitle = styled.h1`
   font-size: 5rem;
   text-align: center;
 `;
-export const SplashScreenArrow = styled.div`
+
+const kfPulse = keyframes`
+  0%, 20%, 50%, 80%, 100% {
+    -moz-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -moz-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+  60% {
+    -moz-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+`;
+
+
+export const SplashScreenArrow = styled.img`
   position: absolute;
-  bottom: 5%;
-  padding: 100px;
-  color: white;
-  text-align: center;
-  font-size: 5rem;
-  background: url("../../images/white-down-arrow.png") no-repeat center 100%;
+  bottom: 0;
   width: 100px;
   height: 100px;
+  animation-name: ${kfPulse};
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
 `;
