@@ -99,6 +99,9 @@ samp {
   font-family: monospace, monospace;
   font-size: 1em;
 }
+code p {
+  margin-bottom: 0;
+}
 figure {
   margin: 1em 40px;
 }

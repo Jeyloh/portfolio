@@ -16,12 +16,13 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: 'gatsby-source-sanity',
+      resolve: "gatsby-source-sanity",
       options: {
-        projectId: "zq41tx5m",
-        dataset: "portfolio",
+        projectId: process.env.GATSBY_SANITY_PROJECT_ID,
+        dataset: process.env.GATSBY_SANITY_DATASET,
+        token: process.env.SANITY_READ_TOKEN,
         watchMode: true,
-      }
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -39,4 +40,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // 'gatsby-plugin-offline',
   ],
-}
+};
